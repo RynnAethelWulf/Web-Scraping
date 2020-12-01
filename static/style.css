@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.5rem;
+    color: rgb(187, 187, 187);
+    Font-Family: 'Muli', Sans-Serif;
+}
+
+h1 {
+    font-size: 4.8rem;
+    Font-Family: 'Merriweather', Serif;
+}
+
+h2 {
+    font-size: 3.8rem;
+    Font-Family: 'Merriweather', Serif;
+}
+
+h3 {
+    font-size: 2.3rem;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+li {
+    text-decoration: none;
+}
+
+.main-header {
+    min-height: 25vh;
+    border-radius: 0.5rem;
+    width: 80%;
+    position: sticky;
+    margin: 2rem auto;
+    /* background-color: #141617; */
+    background: url(https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA19821_hires.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.header {
+    padding-top: 10rem;
+    text-align: center;
+}
+
+
+/* .header h1 {
+    color: rgb(34, 30, 30);
+} */
+
+button {
+    border-style: none;
+    color: rgb(187, 187, 187);
+    cursor: pointer;
+}
+
+.header button {
+    margin-top: 1rem;
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+    border-radius: 1rem;
+    background-color: #141617;
+}
+
+.news {
+    min-height: 10vh;
+    width: 80%;
+    margin: 2rem auto;
+    background-color: #141617;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+}
+
+.news h3 {
+    margin-top: 2rem;
+}
+
+.news p {
+    margin-top: 0.5rem;
+}
+
+.feature-data {
+    min-height: 50vh;
+    width: 80%;
+    margin: 2rem auto;
+    background-color: #141617;
+    padding: 3rem 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.feature-img {
+    border: 1px white solid;
+    flex: 2 1 300px;
+    padding: 1rem;
+}
+
+.feature-img img {
+    width: 1000px;
+    height: 900px;
+    margin: 1rem;
+}
+
+.feature-table {
+    border: 1px white solid;
+    flex: 1 1 300px;
+    padding: 1rem;
+}
