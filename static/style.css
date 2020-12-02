@@ -30,7 +30,8 @@ span {
     font-size: 1.6rem;
 }
 
-li {
+li,
+a {
     text-decoration: none;
 }
 
@@ -54,24 +55,33 @@ li {
     text-align: center;
 }
 
+.header h1 {
+    margin-bottom: 3rem;
+}
 
-/* .header h1 {
-    color: rgb(34, 30, 30);
-} */
-
-button {
+.header a {
     border-style: none;
     color: rgb(187, 187, 187);
     cursor: pointer;
-}
-
-.header button {
     margin-top: 1rem;
     font-size: 2rem;
     padding: 1.5rem 3rem;
     border-radius: 1rem;
     background-color: #141617;
 }
+
+
+/* 
+.button {
+    border-style: none;
+    color: rgb(187, 187, 187);
+    cursor: pointer;
+    margin-top: 2rem;
+    font-size: 2rem;
+    padding: 1.5rem 3rem;
+    border-radius: 1rem;
+    background-color: #141617;
+} */
 
 .news {
     min-height: 10vh;

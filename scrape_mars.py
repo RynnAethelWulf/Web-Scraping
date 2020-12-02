@@ -13,16 +13,17 @@ def init_browser():
     
 def scrape_news():
     # browser = init_browser()
+    mars_info = {}
     url ="https://mars.nasa.gov/news/"
     data = requests.get(url)
     soup = bs(data.text,'html.parser')
     data = soup.find_all('div',class_='slide')
     for news in data:
-        title = news.find('div','content_title').text
-        paragraph = news.find('div','rollover_description_inner').text
+        mars_info['title'] = news.find('div','content_title').text
+        mars_info['paragraph'] = news.find('div','rollover_description_inner').text
         
         # print(title,paragraph)
-    return(title,paragraph)
+    return(mars_info)
 def feature_img():
     browser = init_browser()
     browser.visit('https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars')
@@ -80,4 +81,3 @@ def mars_hem():
             hemisphere_image_urls.append(a)
             browser.quit()
     return hemisphere_image_urls
-mars_hem()
