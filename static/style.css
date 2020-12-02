@@ -47,11 +47,11 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    z-index: 100;
+    /* z-index: 100; */
 }
 
 .header {
-    padding-top: 10rem;
+    padding-top: 5rem;
     text-align: center;
 }
 
@@ -60,8 +60,9 @@ a {
 }
 
 .header a {
-    border-style: none;
+    text-decoration: none;
     color: rgb(187, 187, 187);
+    /* border: 1px white solid; */
     cursor: pointer;
     margin-top: 1rem;
     font-size: 2rem;
@@ -174,8 +175,8 @@ th {
 
 .gallery-img {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
-    /* grid-template-rows: repeat(2, 1fr); */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
     grid-gap: 1rem;
     /* justify-content: center;
     align-items: center; */
@@ -183,7 +184,8 @@ th {
     width: 80%;
     margin: 2rem auto;
     padding: 1rem;
-    grid-template-areas: "row1 row2" "row3 row4";
+    flex-wrap: wrap;
+    grid-template-areas: "box1 box2" "box3 box4";
 }
 
 .box {
@@ -192,11 +194,9 @@ th {
 }
 
 .box img {
-    width: 100%;
+    width: 80%;
     height: auto;
     margin: 1rem;
-    /* border: white 1px solid; */
-    /* align-content: center; */
     padding: 1rem;
     /* align-self: center; */
 }
@@ -204,20 +204,21 @@ th {
 .box p {
     margin: 1rem;
     padding-bottom: 1rem;
+    /* text-align: center; */
 }
 
 .row-1 {
-    grid-area: row1;
+    grid-area: box1;
 }
 
 .row-2 {
-    grid-area: row2;
+    grid-area: box2;
 }
 
 .row-3 {
-    grid-area: row3;
+    grid-area: box3;
 }
 
 .row-4 {
-    grid-area: row4;
+    grid-area: box4;
 }

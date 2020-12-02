@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <link rel="stylesheet" href="../static/style.css">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Merriweather|Muli:300" rel="stylesheet">
 </head>
 
@@ -18,7 +18,7 @@
         <div class="header">
             <h1>Mission To {{ planet }}</h1>
             <!-- <button href="/scrape" type="submit">Scrape New Data</button> -->
-            <a id="button" href="/scrape">Scrape Data</a>
+            <a href="/scrape">Scrape Data</a>
         </div>
 
     </header>
@@ -31,7 +31,7 @@
     <section class="feature-data">
         <div class="feature-img">
             <h2>Featured Mars Image</h2>
-            <img src={{ mars.feature_img}} alt="" srcset="">
+            <img id="hemis" src={{ mars.feature_img}} alt="" srcset="">
         </div>
 
         <div class="feature-table">
@@ -46,21 +46,32 @@
 
         <div class="gallery-img">
             <div class="box row-1">
-                <img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="">
+
+                <img src={{ mars.hemisphere_urls[0][ 'img_url']}} alt="">
                 <!-- <span class="caption">Text below the image</span> -->
-                <p>Text below the image</p>
+                <p>{{ mars.hemisphere_urls[0]['title'] }}</p>
+
             </div>
             <div class="box row-2">
-                <img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="">
-                <p>Text below the image</p>
+
+                <img src={{ mars.hemisphere_urls[1][ 'img_url']}} alt="">
+                <!-- <span class="caption">Text below the image</span> -->
+                <p>{{ mars.hemisphere_urls[1]['title'] }}</p>
+
             </div>
             <div class="box row-3">
-                <img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="">
-                <p>Text below the image</p>
+
+                <img src={{ mars.hemisphere_urls[2][ 'img_url']}} alt="">
+                <!-- <span class="caption">Text below the image</span> -->
+                <p>{{ mars.hemisphere_urls[2]['title'] }}</p>
+
             </div>
             <div class="box row-4">
-                <img src="https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="">
-                <p>Text below the image</p>
+
+                <img src={{ mars.hemisphere_urls[3][ 'img_url']}} alt="">
+                <!-- <span class="caption">Text below the image</span> -->
+                <p>{{ mars.hemisphere_urls[3]['title'] }}</p>
+
             </div>
         </div>
     </section>
