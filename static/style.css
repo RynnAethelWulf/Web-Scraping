@@ -178,9 +178,6 @@ th {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     grid-gap: 1rem;
-    /* justify-content: center;
-    align-items: center; */
-    /* border: 1px solid white; */
     width: 80%;
     margin: 2rem auto;
     padding: 1rem;
