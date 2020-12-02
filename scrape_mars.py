@@ -11,10 +11,10 @@ driver_path = os.environ.get("SPLINTER_PATH")
 
 mars_info = {}
 def scrape():
+    # setting up browser
     executable_path = {'executable_path':r"C:\bin\chromedriver.exe"}
     browser = Browser('chrome', **executable_path)
-    # return browser
-    
+    # Part-1 News Title
     url ="https://mars.nasa.gov/news/"
     data = requests.get(url)
     soup = bs(data.text,'html.parser')
@@ -23,10 +23,7 @@ def scrape():
         mars_info['title'] = news.find('div','content_title').text
         mars_info['paragraph'] = news.find('div','rollover_description_inner').text
         
-        # print(title,paragraph)
-    # return(mars_info)
-
-        
+    # Part -2  Feature Image 
     browser.visit('https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars')
     browser.find_by_id('full_image').click()
     browser.is_element_present_by_text("more info", wait_time=1)
@@ -39,11 +36,10 @@ def scrape():
     main_img_url = "https://www.jpl.nasa.gov" + main_img
     # print(main_img_url)
     mars_info['feature_img'] = main_img_url
-    # browser.visit(f'{main_img_url}')
-    time.sleep(1)
-    # browser.quit()
-        
-
+    # break for the splinter
+    time.sleep(0.5)
+    
+        # Part-3 Table
 
     facts_url = "https://space-facts.com/mars/"
     facts = pd.read_html(facts_url)
@@ -54,11 +50,9 @@ def scrape():
     1:'Mars'
 },inplace=True) 
     table_html = df.to_html(index =False,justify ='center')
-    # table_html.replace('/n','')
-    # print(table_html)
     mars_info['table_html'] = table_html
     
-    
+#   Part -4 Hemisphere Urls
 
     hemisphere_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     hemisphere_data = requests.get(hemisphere_url)

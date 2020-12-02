@@ -4,11 +4,9 @@ import time
 import scrape_mars
 app = Flask(__name__)
 
+# Databse connection
 app.config["MONGO_URI"] = "mongodb://localhost:27017/mars"
 mongo = PyMongo(app)
-
-
-
 
 @app.route("/")
 def index():
