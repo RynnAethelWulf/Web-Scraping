@@ -4,17 +4,16 @@ import time
 from splinter import Browser
 import os
 import pandas as pd
+# import pymongo
 driver_path = os.environ.get("SPLINTER_PATH")
+
+
+
 mars_info = {}
-
-
-def init_browser():
+def scrape():
     executable_path = {'executable_path':r"C:\bin\chromedriver.exe"}
     browser = Browser('chrome', **executable_path)
-    return browser
-    
-def scrape_news():
-    # browser = init_browser()
+    # return browser
     
     url ="https://mars.nasa.gov/news/"
     data = requests.get(url)
@@ -25,9 +24,9 @@ def scrape_news():
         mars_info['paragraph'] = news.find('div','rollover_description_inner').text
         
         # print(title,paragraph)
-    return(mars_info)
-def feature_img():
-    browser = init_browser()
+    # return(mars_info)
+
+        
     browser.visit('https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars')
     browser.find_by_id('full_image').click()
     browser.is_element_present_by_text("more info", wait_time=1)
@@ -41,12 +40,11 @@ def feature_img():
     # print(main_img_url)
     mars_info['feature_img'] = main_img_url
     # browser.visit(f'{main_img_url}')
-    # time.sleep(1)
-    browser.quit()
-    
-    return mars_info
+    time.sleep(1)
+    # browser.quit()
+        
 
-def mars_facts():
+
     facts_url = "https://space-facts.com/mars/"
     facts = pd.read_html(facts_url)
 
@@ -59,9 +57,9 @@ def mars_facts():
     # table_html.replace('/n','')
     # print(table_html)
     mars_info['table_html'] = table_html
-    return mars_info
     
-def mars_hem():
+    
+
     hemisphere_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     hemisphere_data = requests.get(hemisphere_url)
     hemisphere_data = bs(hemisphere_data.text,'html.parser')
@@ -71,10 +69,10 @@ def mars_hem():
 
             end_link = links.a['href']
             image_link = "https://astrogeology.usgs.gov/" + end_link 
-            browser = init_browser()
+            
             browser.visit(image_link)
             html = browser.html
-            time.sleep(2)
+            
             soup= bs(html, "html.parser")
             downloads = soup.find("div", class_="downloads")
             image_url = downloads.find("a")["href"]
@@ -85,6 +83,7 @@ def mars_hem():
                 }
             hemisphere_image_urls.append(a)
             mars_info['hemisphere_urls'] = hemisphere_image_urls
-            browser.quit()
+            time.sleep(1)
+    browser.quit()
             
     return mars_info
