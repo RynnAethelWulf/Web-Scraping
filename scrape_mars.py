@@ -5,7 +5,7 @@ from splinter import Browser
 import os
 import pandas as pd
 driver_path = os.environ.get("SPLINTER_PATH")
-
+mars_info = {}
 def init_browser():
     executable_path = {'executable_path':r"C:\bin\chromedriver.exe"}
     browser = Browser('chrome', **executable_path)
@@ -13,7 +13,7 @@ def init_browser():
     
 def scrape_news():
     # browser = init_browser()
-    mars_info = {}
+    
     url ="https://mars.nasa.gov/news/"
     data = requests.get(url)
     soup = bs(data.text,'html.parser')
@@ -37,10 +37,12 @@ def feature_img():
     main_img = soup_img.find('img',class_="main_image")['src']
     main_img_url = "https://www.jpl.nasa.gov" + main_img
     # print(main_img_url)
-    browser.visit(f'{main_img_url}')
-    time.sleep(2)
+    mars_info['feature_img'] = main_img_url
+    # browser.visit(f'{main_img_url}')
+    # time.sleep(1)
     browser.quit()
-    return main_img_url
+    
+    return mars_info
 
 def mars_facts():
     facts_url = "https://space-facts.com/mars/"
@@ -54,7 +56,8 @@ def mars_facts():
     table_html = df.to_html(index =False,justify ='center')
     # table_html.replace('/n','')
     # print(table_html)
-    return table_html
+    mars_info['table_html'] = table_html
+    return mars_info
     
 def mars_hem():
     hemisphere_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -79,5 +82,7 @@ def mars_hem():
             'img_url':image_url
                 }
             hemisphere_image_urls.append(a)
+            mars_info['hemisphere_urls'] = hemisphere_image_urls
             browser.quit()
-    return hemisphere_image_urls
+            
+    return mars_info
