@@ -38,13 +38,15 @@ li {
     min-height: 25vh;
     border-radius: 0.5rem;
     width: 80%;
-    position: sticky;
+    /* position: sticky;
+    top: 10px; */
     margin: 2rem auto;
     /* background-color: #141617; */
     background: url(https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA19821_hires.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    z-index: 100;
 }
 
 .header {
@@ -147,7 +149,7 @@ th {
 /* Gallery */
 
 .gallery {
-    min-height: 50vh;
+    min-height: 80vh;
     width: 80%;
     margin: 2rem auto;
     background-color: #141617;
@@ -162,6 +164,50 @@ th {
 
 .gallery-img {
     display: grid;
-    grid-template-columns: repeat(1fr 1fr);
-    grid-template-rows: repeat(1fr 1fr);
+    grid-template-columns: repeat(auto-fit, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-gap: 1rem;
+    /* justify-content: center;
+    align-items: center; */
+    /* border: 1px solid white; */
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+    grid-template-areas: "row1 row2" "row3 row4";
+}
+
+.box {
+    /* border: 1px solid white; */
+    text-align: center;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    margin: 1rem;
+    /* border: white 1px solid; */
+    /* align-content: center; */
+    padding: 1rem;
+    /* align-self: center; */
+}
+
+.box p {
+    margin: 1rem;
+    padding-bottom: 1rem;
+}
+
+.row-1 {
+    grid-area: row1;
+}
+
+.row-2 {
+    grid-area: row2;
+}
+
+.row-3 {
+    grid-area: row3;
+}
+
+.row-4 {
+    grid-area: row4;
 }
