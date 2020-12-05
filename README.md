@@ -18,6 +18,7 @@
 
 <p align="center">A Responsive Web Visualization Dashboard using Flask framework to create a application that scrapes various websites for data related to the Mars and displays the information in a single HTML page.
     <br> 
+  
 </p>
 
 ## 📝 Table of Contents
