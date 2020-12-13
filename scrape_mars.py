@@ -9,9 +9,10 @@ driver_path = os.environ.get("SPLINTER_PATH")
 
 
 
-mars_info = {}
+
 def scrape():
     # setting up browser
+    mars_info = {}
     executable_path = {'executable_path':r"C:\bin\chromedriver.exe"}
     browser = Browser('chrome', **executable_path)
     # Part-1 News Title
